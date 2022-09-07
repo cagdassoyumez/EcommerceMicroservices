@@ -74,8 +74,8 @@ namespace Catalog.API.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
-            var isUpdated = await _repository.UpdateProduct(product);
-            return Ok(isUpdated);
+            var updatedProduct = await _repository.UpdateProduct(product);
+            return Ok(updatedProduct);
         }
 
         [HttpDelete("{id:length(24)}", Name = "DeleteProduct")]
